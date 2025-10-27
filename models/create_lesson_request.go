@@ -3,5 +3,5 @@ package models
 type CreateLessonRequest struct {
 	Title       string `json:"title"`
 	Description string `json:"description"`
-	Teacher     string `json:"teacher"`
+	TeacherID   uint   `json:"teacher_id"`
 }

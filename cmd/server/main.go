@@ -21,7 +21,13 @@ func main() {
 	}
 
 	common.InitDB()
-	common.DB.AutoMigrate(&entities.Lesson{}, &entities.Student{})
+	// Migrate all entities including new ones
+	common.DB.AutoMigrate(
+		&entities.Admin{},
+		&entities.Teacher{},
+		&entities.Student{},
+		&entities.Lesson{},
+	)
 
 	api := InitRoutes()
 	fmt.Println("✅ Server running on port:", port)
